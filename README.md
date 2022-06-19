@@ -2,7 +2,7 @@ Microservice sending email
 
 Micro serviço criado por Michelli Britto.
 
-Tecnilogias usadas:
+Tecnologias usadas:
   Java 11
   spring boot
   
