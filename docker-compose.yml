@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+
+  app:
+    container_name: app_email
+    image: app_sending-email
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    depends_on:
+      - postgres-db
+    environment:
+      POSTGRES_USERNAME: root
+      POSTGRES_PASSWORD: example
+      POSTGRES_PORT: 5432
+      POSTGRES_URL: jdbc:postgresql://postgres-db:5432/ms-email
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    networks:
+      - ms-email-network
+
+  postgres-db:
+    image: postgres
+    container_name: postgresql
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DB=ms-email
+    ports:
+      - "5432:5432"
+    networks:
+      - ms-email-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8082:8080
+    networks:
+      - ms-email-network
+
+networks:
+  ms-email-network:
+

@@ -1,0 +1,25 @@
+spring:
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/ms-email}
+    username: ${POSTGRES_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD:example}
+
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: example@gmail.com
+    password: password app
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
