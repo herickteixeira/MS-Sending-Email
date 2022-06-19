@@ -1,6 +1,6 @@
 Microservice sending email
 
-Micro serviço criado por Michelli Britto.
+Autoria do micro serviço Michelli Britto.
 
 Tecnologias utilizadas:
   Java 11
